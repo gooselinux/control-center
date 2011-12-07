@@ -1,0 +1,20 @@
+--- gnome-control-center-2.28.1/capplets/about-me/gnome-about-me-fingerprint.c.finger-icons	2010-01-15 13:14:08.000000000 +0000
++++ gnome-control-center-2.28.1/capplets/about-me/gnome-about-me-fingerprint.c	2010-01-15 13:16:13.000000000 +0000
+@@ -367,7 +367,7 @@ enroll_result (GObject *object, const ch
+ 
+ 		data->num_stages_done++;
+ 		name = g_strdup_printf ("image%d", data->num_stages_done);
+-		path = g_build_filename (GNOMECC_PIXMAP_DIR, "print_ok.png", NULL);
++		path = g_build_filename (GNOMECC_PIXMAP_DIR, "print_ok.svg", NULL);
+ 		gtk_image_set_from_file (GTK_IMAGE (WID (name)), path);
+ 		g_free (name);
+ 		g_free (path);
+@@ -468,7 +468,7 @@ assistant_prepare (GtkAssistant *ass, Gt
+ 		{
+ 			char *filename;
+ 
+-			filename = g_strdup_printf ("%s.png", data->finger);
++			filename = g_strdup_printf ("%s.svg", data->finger);
+ 			path = g_build_filename (GNOMECC_PIXMAP_DIR, filename, NULL);
+ 			g_free (filename);
+ 		}

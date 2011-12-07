@@ -1,0 +1,12 @@
+diff -ur gnome-control-center-2.28.1-old/capplets/common/gtkrc-utils.c gnome-control-center-2.28.1/capplets/common/gtkrc-utils.c
+--- gnome-control-center-2.28.1-old/capplets/common/gtkrc-utils.c	2009-12-09 16:42:59.000000000 -0500
++++ gnome-control-center-2.28.1/capplets/common/gtkrc-utils.c	2009-12-09 16:46:57.000000000 -0500
+@@ -221,6 +221,7 @@
+ 					result = g_strdup (scanner->value.v_string);
+ 				}
+ 			}
++			close(file);
+ 		}
+ 	}
+ 
+

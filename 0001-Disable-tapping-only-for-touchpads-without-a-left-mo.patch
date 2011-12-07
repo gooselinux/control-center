@@ -1,0 +1,32 @@
+From 2e347d700a8c57c21a9e92913b7e643893f60ef7 Mon Sep 17 00:00:00 2001
+From: Peter Hutterer <peter.hutterer@who-t.net>
+Date: Wed, 13 Jan 2010 09:46:33 +1000
+Subject: [PATCH] Disable tapping only for touchpads without a left mouse button.
+
+Apple touchpads have a single physical button and are thus capable of
+working even if tapping is disabled. Don't force it on for these touchpads.
+
+This patch simply changes the check for physical buttons from the previous
+"check for LMR be present" to "check only for L".
+
+Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+---
+ capplets/mouse/gnome-mouse-properties.c |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/capplets/mouse/gnome-mouse-properties.c b/capplets/mouse/gnome-mouse-properties.c
+index fe88434..041ef58 100644
+--- a/capplets/mouse/gnome-mouse-properties.c
++++ b/capplets/mouse/gnome-mouse-properties.c
+@@ -359,7 +359,7 @@ synaptics_check_capabilities (GtkBuilder *dialog)
+ 					 &bytes_after, &data) == Success) && (realtype != None)) {
+ 			/* Property data is booleans for has_left, has_middle,
+ 			 * has_right, has_double, has_triple */
+-			if (!data[0] || !data[1] || !data[2]) {
++			if (!data[0]) {
+ 				gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (WID ("tap_to_click_toggle")), TRUE);
+ 				gtk_widget_set_sensitive (WID ("tap_to_click_toggle"), FALSE);
+ 			}
+-- 
+1.7.0.1
+
