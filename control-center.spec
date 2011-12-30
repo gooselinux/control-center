@@ -24,7 +24,7 @@
 Summary: Utilities to configure the GNOME desktop
 Name: control-center
 Version: 2.28.1
-Release: 25%{?dist}
+Release: 25%{?dist}.goose.2
 Epoch: 1
 License: GPLv2+ and GFDL
 Group: User Interface/Desktops
@@ -448,6 +448,12 @@ fi
 
 
 %changelog
+* Thu Dec 29 2011 Clint Savage <herlo@gooseproject.org> 2.28.1-25.goose.2
+- Rebuilding bootstrapped package
+
+* Thu Dec 29 2011 Clint Savage <herlo@gooseproject.org> 2.28.1-25.goose.1
+- Updating for mock build to deal with circular dependencies
+
 * Tue Aug 10 2010 Ray Strode <rstrode@redhat.com> 2.28.1-25
 - Update translations again
   Resolves: #622759
